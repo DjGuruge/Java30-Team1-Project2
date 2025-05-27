@@ -21,6 +21,8 @@ public class UserEntity {
     @Email
     private String email;
 
+    private String password;
+
     private LocalDate birthDate;
     private LocalDate registrationDate;
 
@@ -35,8 +37,9 @@ public class UserEntity {
     private List<ReviewEntity> reviews = new ArrayList<>();
 
     private UserEntity() {
+        // Required by JPA
     }
-
+    
     public UserEntity(String name, String surname, String email, LocalDate birthDate, LocalDate registrationDate, boolean isActive, List<OrderEntity> orders) {
         this.name = name;
         this.surname = surname;
@@ -77,6 +80,14 @@ public class UserEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDate getBirthDate() {
